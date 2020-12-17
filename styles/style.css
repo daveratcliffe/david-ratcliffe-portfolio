@@ -179,7 +179,9 @@ header h2{
   background-color: #fff;
   height: auto;
 }
-
+.about p {
+  font-size: 1.6rem;
+}
 .about h2 {
   margin-left: 0;
   margin-top: 0;
@@ -191,7 +193,7 @@ figure {
   height: auto;
 }
 article {
-  width: 50%;
+  width: 60%;
 }
 .about-flex {
   display: flex;

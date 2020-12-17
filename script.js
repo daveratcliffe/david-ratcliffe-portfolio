@@ -2,7 +2,8 @@
   
   const nav = document.querySelector('.scroll-nav');
   const wordMark = document.querySelector('.wordmark-container')
-  const navOptions = document.querySelectorAll('.nav-options')
+  let navOptions = document.querySelectorAll('.nav-options')
+  navOptions = Array.from(navOptions)
 
   window.onscroll= function() {
     let top = window.scrollY;
@@ -12,16 +13,22 @@
       document.getElementById('logo-change').src = "./assets/RatLogoWhite.png"; 
       wordMark.classList.remove('nav-text-dark')
       wordMark.classList.add('nav-text-light')
-      navOptions.classList.remove('nav-text-dark')
-      navOptions.classList.add('nav-text-light')
+
+      navOptions.forEach((option)=>{
+        option.classList.remove('nav-text-dark')
+        option.classList.add('nav-text-light')
+      })
     }else{
       nav.classList.remove('dark-color')
       nav.classList.add('light-color')
       document.getElementById('logo-change').src = "./assets/RatLogoBlack.png";
       wordMark.classList.remove('nav-text-light')
       wordMark.classList.add('nav-text-dark')
-      navOptions.classList.remove('nav-text-light')
-      navOptions.classList.add('nav-text-dark')
+
+      navOptions.forEach((option)=>{
+        option.classList.remove('nav-text-light')
+        option.classList.add('nav-text-dark')
+      })
     }
   }
 
