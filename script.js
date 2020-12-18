@@ -1,37 +1,96 @@
-  // Nav bar and logo changes colors when scrolled
-  
-  const nav = document.querySelector('.scroll-nav');
-  const wordMark = document.querySelector('.wordmark-container')
-  let navOptions = document.querySelectorAll('.nav-options')
-  navOptions = Array.from(navOptions)
+  //Making nav bar funcitonality
+  const navSlide = () => {
+    const burgerIcon = document.querySelector('.burger');
+    const burgerNav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
 
+    burgerIcon.addEventListener('click', () => {
+      burgerNav.classList.toggle('nav-active');
+      //animate Links
+      navLinks.forEach((link, index) => {
+      if (link.style.animation){
+          link.style.animation = ''
+      }else{
+        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.6}s`
+      }
+    });
+    //burger animarion
+    burgerIcon.classList.toggle('toggle');
+    });
+    
+}
+  navSlide();
+  
+  
+  // Nav bar and logo changes colors when scrolled
+  const navColorChange = () => {
+    //getting all the elements in the nav
+  const nav = document.querySelector('.scroll-nav');
+
+  const wordMark = document.querySelector('.wordmark-container');
+
+  const ul = document.querySelector('.nav-links');
+
+  let navOptions = document.querySelectorAll('.nav-options');
+  navOptions = Array.from(navOptions);
+
+  let burger = document.querySelectorAll('.burger-line');
+  burger = Array.from(burger);
+  console.log(burger);
+  
   window.onscroll= function() {
     let top = window.scrollY;
     if (top > 400) {
-      nav.classList.remove('light-color')
-      nav.classList.add('dark-color')
-      document.getElementById('logo-change').src = "./assets/RatLogoWhite.png"; 
-      wordMark.classList.remove('nav-text-dark')
-      wordMark.classList.add('nav-text-light')
 
+      nav.classList.remove('light-color');
+      nav.classList.add('dark-color');
+      
+      ul.classList.remove('light-color');
+      ul.classList.add('dark-color');
+
+      document.getElementById('logo-change').src = "./assets/RatLogoWhite.png";
+
+      wordMark.classList.remove('nav-text-dark');
+      wordMark.classList.add('nav-text-light');
+
+      burger.forEach((burgerLine)=>{
+        burgerLine.classList.remove('nav-background-dark');
+        burgerLine.classList.add('nav-background-light');
+      })
+      
       navOptions.forEach((option)=>{
-        option.classList.remove('nav-text-dark')
-        option.classList.add('nav-text-light')
+        option.classList.remove('nav-text-dark');
+        option.classList.add('nav-text-light');
       })
     }else{
-      nav.classList.remove('dark-color')
-      nav.classList.add('light-color')
+      nav.classList.remove('dark-color');
+      nav.classList.add('light-color');
+
+      ul.classList.remove('dark-color');
+      ul.classList.add('light-color');
+
       document.getElementById('logo-change').src = "./assets/RatLogoBlack.png";
-      wordMark.classList.remove('nav-text-light')
-      wordMark.classList.add('nav-text-dark')
+
+      wordMark.classList.remove('nav-text-light');
+      wordMark.classList.add('nav-text-dark');
+
+      burger.forEach((burgerLine)=>{
+        burgerLine.classList.remove('nav-background-light');
+        burgerLine.classList.add('nav-background-dark');
+      })
 
       navOptions.forEach((option)=>{
-        option.classList.remove('nav-text-light')
-        option.classList.add('nav-text-dark')
+        option.classList.remove('nav-text-light');
+        option.classList.add('nav-text-dark');
       })
     }
   }
+}
+navColorChange();
 
+
+//creating the typing animation
+//creating a class to store all the infromation we will need  
 class TypeWriter {
   constructor(txtElement, words, wait = 3000) {
     this.txtElement = txtElement;

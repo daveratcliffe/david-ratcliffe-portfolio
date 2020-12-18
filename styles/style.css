@@ -74,7 +74,7 @@ section {
 
 nav {
   position: fixed;
-  transition: all 0.5s;
+  transition: all 0.5s ease-in;
   height: 60px;
   width: 100%;
 }
@@ -82,31 +82,52 @@ nav a {
   font-size: 2rem;
   color: #2e3135;
 }
-nav ul {
+.nav-links {
   display: flex;
   list-style: none;
   width: 50%;
   padding: 0;
 }
-nav ul li {
+.nav-links li {
   padding: 1rem;
 }
 @media (hover: hover) {
-nav ul li:hover a,
-nav ul li:focus a {
+.nav-links li:hover a,
+.nav-links li:focus a {
   color: #e65f78;
 }
 }
+.burger {
+  display: none;
+}
+
+.burger div{
+  width: 30px;
+  height: 3px;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
 .nav-text-dark {
   color: #2e3135;
+  transition: all 0.5s ease-in;
 }
 .nav-text-light{
   color: #fbfbfb;
+  transition: all 0.5s ease-in;
+}
+.nav-background-dark {
+  background-color: #2e3135;
+  transition: all 0.5s ease-in;
+}
+.nav-background-light {
+  background-color: #fbfbfb;
+  transition: all 0.5s ease-in;
 }
 .nav-flex{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 7px;
 }
 .logo-name-flex {
   display: flex;
@@ -119,17 +140,17 @@ nav ul li:focus a {
 }
 .light-color{
   background-color: rgba(236, 236, 236, 0.9);
-  transition: all 0.5s;
+  transition: all 0.5s ease-in;
 }
 .dark-color{
   background-color: rgba(19, 17, 15, 0.9);
-  transition: all 0.5s;
+  transition: all 0.5s ease-in;
 }
 #logo-change{
-  transition: all 0.5s;
+  transition: all 0.5s ease-in;
 }
 .wordmark-container p{
-  font-size: 3rem;
+  font-size: clamp(1rem, 6vw, 3rem);
   font-weight: 700;
   margin: 0;
 }
@@ -430,8 +451,56 @@ footer p {
     text-align: center;
   }
 }
+@media only screen and (max-width: 870px) {
+  
+  .nav-flex{
+    padding-top: 7px;
+  }
+  .nav-links {
+    position: absolute;
+    right: 0px;
+    top: 50px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(-400px);
+    transition: transform 0.5s ease-in;
+    z-index: -999;
+  }
+  .nav-links li {
+    opacity: 0;
+    padding: 20px;
+  }
+  .burger {
+    display: block;
+    cursor: pointer;
+  }
+  .nav-active {
+    transform: translateY(0px);
+  }
+  @keyframes navLinkFade {
+    from{
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  .toggle .line-1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  .toggle .line-2 {
+  opacity: 0;
+  }
+  .toggle .line-3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
 @media only screen and (max-width: 715px) {
   header {
    background-position: -300px 5px;
   }
 }
+
