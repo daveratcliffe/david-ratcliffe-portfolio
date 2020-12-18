@@ -74,7 +74,7 @@ section {
 
 nav {
   position: fixed;
-  transition: all 0.5s ease-in;
+  transition: all 0.3s ease-in;
   height: 60px;
   width: 100%;
 }
@@ -109,19 +109,19 @@ nav a {
 }
 .nav-text-dark {
   color: #2e3135;
-  transition: all 0.5s ease-in;
+  transition: all 0.3s ease-in;
 }
 .nav-text-light{
   color: #fbfbfb;
-  transition: all 0.5s ease-in;
+  transition: all 0.3s ease-in;
 }
 .nav-background-dark {
   background-color: #2e3135;
-  transition: all 0.5s ease-in;
+  transition: all 0.3s ease-in;
 }
 .nav-background-light {
   background-color: #fbfbfb;
-  transition: all 0.5s ease-in;
+  transition: all 0.3s ease-in;
 }
 .nav-flex{
   display: flex;
@@ -139,15 +139,15 @@ nav a {
   height: 50px;
 }
 .light-color{
-  background-color: rgba(236, 236, 236, 0.9);
-  transition: all 0.5s ease-in;
+  background-color: #ececec;
+  transition: all 0.3s ease-in;
 }
 .dark-color{
-  background-color: rgba(19, 17, 15, 0.9);
-  transition: all 0.5s ease-in;
+  background-color: #13110f;
+  transition: all 0.3s ease-in;
 }
 #logo-change{
-  transition: all 0.5s ease-in;
+  transition: all 0.3s ease-in;
 }
 .wordmark-container p{
   font-size: clamp(1rem, 6vw, 3rem);
@@ -464,7 +464,7 @@ footer p {
     flex-direction: column;
     align-items: center;
     transform: translateY(-400px);
-    transition: transform 0.5s ease-in;
+    transition: all 0.3s ease-in;
     z-index: -999;
   }
   .nav-links li {
